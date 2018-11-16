@@ -1,0 +1,31 @@
+nav(class="navbar navbar-expand-md navbar-dark fixed-top p-0 bg-primary")
+    a(class="navbar-brand col-sm-3 col-md-2 mr-0" href="/") Issue tracker
+    button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation")
+        span(class="navbar-toggler-icon")        
+    div(class="collapse navbar-collapse" id="navbarCollapse")
+        ul(class="navbar-nav mr-auto")
+            li(class="nav-item")
+                a(class="nav-link" href="/project") 프로젝트
+            li(class="nav-item")
+                a(class="nav-link" href="/issue") 이슈
+            li(class="nav-item")
+                a(class="nav-link" href="/env/project") 관리
+                    
+        ul(class="navbar-nav px-3")
+            li(class="nav-item active")
+                a(class="nav-link" href="/logout")
+                    if locals.session 
+                        [ #{session.name} ]&nbsp;Sign out
+                    
+                
+
+script(type="text/javascript").
+    function selectHeaderMenu(idx){
+        $(".navbar-nav .nav-item").each(function(index, value){
+            if(idx==index){
+                $(this).addClass("active");
+            }else{
+                $(this).removeClass("active");
+            }
+        });
+    }

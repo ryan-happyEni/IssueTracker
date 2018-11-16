@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        title Issue tracker
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+        meta(name="_csrf" content=_csrf)
+        meta(name="_csrf_header" content=_csrf_header) 
+
+        link(rel='stylesheet', href='//stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/static/css/signin.css')
+        script(src='//code.jquery.com/jquery-latest.min.js')
+        script(src="/static/js/common.js")
+    body(class="text-center")
+        form(class="form-signin" method="post" action="/login" name="frm")
+            img(class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72")
+            h1(class="h3 mb-3 font-weight-normal") Please sign in
+            label(for="userid" class="sr-only") Email address
+            input(type="email" id="userid" name="userid" class="form-control" placeholder="Email address" required="" autofocus="")
+            label(for="userpass" class="sr-only") Password
+            input(type="password" id="userpass" name="userpass" class="form-control" placeholder="Password" required="")
+            div(class="checkbox mb-3")
+                label
+                    input(type="checkbox" value="remember-me") 
+                    |Remember me
+            button(class="btn btn-lg btn-primary btn-block" type="submit") Sign in
+            button(class="btn btn-lg btn-primary btn-block" type="button" onclick='document.frm.action="/join";document.frm.submit();') Join
+        
+        script(src="//stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js")

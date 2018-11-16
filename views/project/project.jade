@@ -1,0 +1,54 @@
+extends ../layout_side
+
+block content 
+    main(role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4")
+        div(class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3")
+            h1(class="h2") Project
+            div(class="btn-toolbar mb-2 mb-md-0")
+            div(class="btn-group mr-2")
+                
+        div(class="header-ending")
+        div(class="row mt-3")
+            div(class="col-12")
+                h5 List                
+                table(class="table table-bordered" id="project_list")
+                    colgroup
+                        col(width="13%")
+                        col(width="57%")
+                        col(width="30%")
+                    thead
+                        tr
+                            th Seq
+                            th Name
+                            th Date
+                    tbody
+                ul(class="pagination") 
+ 
+
+    div(class="modal modal-wide fade" role="dialog" id="viewModal")
+        div(class="modal-dialog" role="document")
+            div(class="modal-content ")
+                div(class="modal-header")
+                    h4(class="modal-title") Project 정보
+                    button(type="button" class="close" data-dismiss="modal") &times; 
+
+                div(class="modal-body")
+                    form(class="form needs-validation" role="form" autocomplete="off" id="updateForm" name="updateForm" novalidate)
+                        input(type="hidden" id="m_project_seq")
+                        div(class="form-group row")
+                            label(class="col-md-3 col-form-label form-control-label tx-right" for="m_project_name")
+                                h6 Project name
+                            div(class="col-md-9")
+                                input(type="text" class="form-control" maxlength="30" placeholder="Enter project name" required id="m_project_name")
+                                div(class="invalid-feedback") 
+                                    h6 Enter project name.
+
+                div(class="modal-footer") 
+                    button(type="button" class="btn btn-default" id="btn_cancel") Cancel
+
+    script(type="text/javascript" src="/static/js/project/project.js")
+    script(type="text/javascript").
+        selectHeaderMenu(0);  
+        loadSideMenu();        
+      
+    

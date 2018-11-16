@@ -1,0 +1,97 @@
+extends ../layout_side
+
+block content 
+    main(role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4")
+        div(class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom")
+            h1(class="h2") 프로젝트
+            div(class="btn-toolbar mb-2 mb-md-0")
+            div(class="btn-group mr-2")
+                button(class="btn btn-sm btn-outline-warning" data-toggle="modal" data-target="#insertModal" id="btn_insert") 만들기
+        div(class="row")
+            div(class="col-12")
+                h5 List                
+                table(class="table table-bordered" id="project_list")
+                    colgroup
+                        col(width="13%")
+                        col(width="57%")
+                        col(width="30%")
+                    thead
+                        tr
+                            th #
+                            th 프로젝트명
+                            th 생성일
+                    tbody
+                ul(class="pagination") 
+
+
+    div(class="modal modal-wide fade" role="dialog" id="insertModal")
+        div(class="modal-dialog" role="document")
+            div(class="modal-content ")
+                div(class="modal-header")
+                    h4(class="modal-title") 프로젝트 만들기
+                    button(type="button" class="close" data-dismiss="modal") &times; 
+
+                div(class="modal-body")
+                    form(class="form needs-validation" role="form" autocomplete="off" id="insertForm" name="insertForm" novalidate)
+                        div(class="form-group row")
+                            label(class="col-md-3 col-form-label form-control-label tx-right" for="project_name")
+                                h6 프로젝트명
+                            div(class="col-md-9")
+                                input(type="text" class="form-control" maxlength="30" placeholder="프로젝트명을 입력하세요." required id="project_name")
+                                div(class="invalid-feedback") 
+                                    h6 프로젝트명을 입력하세요.
+
+                div(class="modal-footer")
+                    button(type="button" class="btn btn-warning" id="btn_save") Save 
+                    button(type="button" class="btn btn-default" id="btn_cancel") Cancel
+
+
+    div(class="modal modal-wide fade" role="dialog" id="updateModal")
+        div(class="modal-dialog" role="document")
+            div(class="modal-content ")
+                div(class="modal-header")
+                    h4(class="modal-title") 프로젝트 수정
+                    button(type="button" class="close" data-dismiss="modal") &times; 
+
+                div(class="modal-body")
+                    form(class="form needs-validation" role="form" autocomplete="off" id="updateForm" name="updateForm" novalidate)
+                        input(type="hidden" id="m_project_seq")
+                        div(class="form-group row")
+                            label(class="col-md-3 col-form-label form-control-label tx-right" for="m_project_name")
+                                h6 프로젝트명
+                            div(class="col-md-9")
+                                input(type="text" class="form-control" maxlength="30" placeholder="프로젝트명을 입력하세요." required id="m_project_name")
+                                div(class="invalid-feedback") 
+                                    h6 프로젝트명을 입력하세요.
+                    div(class="header-ending")
+                    div(class="row mt-4")
+                        div(class="col-12")
+                            div(class="row")
+                                h5(class="col-md-6") 구성요소    
+                                div(class="btn-group col-md-6 justify-content-end pb-2")
+                                    button(class="btn btn-sm btn-outline-warning" id="btn_insert_component") 요소 추가    
+                            table(class="table table-bordered" id="component_list")
+                                colgroup
+                                    col(width="5%")
+                                    col(width="30%")
+                                    col(width="35%")
+                                    col(width="30%")
+                                thead
+                                    tr
+                                        th #
+                                        th 구성요소
+                                        th 담당
+                                        th 설명
+                                tbody
+
+                div(class="modal-footer")
+                    button(type="button" class="btn btn-warning" id="btn_m_save") Save 
+                    button(type="button" class="btn btn-danger" id="btn_m_delete") Delete 
+                    button(type="button" class="btn btn-default" id="btn_m_cancel") Cancel
+
+ 
+
+    script(type="text/javascript" src="/static/js/env/project.js")
+    script(type="text/javascript").
+        selectHeaderMenu(2);
+        loadSideMenu();    
