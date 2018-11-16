@@ -12,10 +12,14 @@ function loadSideMenu(){
     }else if(pathname.indexOf("/project")==0){
         items[items.length]={name:"프로젝트", url:"/project"};
     }else if(pathname.indexOf("/issue")==0){
+        items[items.length]={name:"나의 미해결 이슈", url:"/issue"};
+        items[items.length]={name:"내가 보고함", url:"/issue"};
+        items[items.length]={name:"모든 이슈", url:"/issue"};
+        items[items.length]={name:"미해결 이슈", url:"/issue"};
+        items[items.length]={name:"안료된 이슈", url:"/issue"};
     }else if(pathname.indexOf("/env")==0){
         items[items.length]={name:"사용자", url:"/env/user"};
         items[items.length]={name:"프로젝트", url:"/env/project"};
-
     }else if(pathname=="/"){
         items[items.length]={name:"Dashboard", url:"/"};
     }

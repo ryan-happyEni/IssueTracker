@@ -1,0 +1,62 @@
+extends ../layout_side
+
+block content 
+    main(role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4")
+        div(class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3")
+            h1(class="h2") 이슈
+            div(class="btn-toolbar mb-2 mb-md-0")
+            div(class="btn-group mr-2")
+                button(class="btn btn-sm btn-outline-warning" data-toggle="modal" data-target="#insertModal" id="btn_insert") 이슈 만들기
+                
+        div(class="header-ending")
+        div(class="row mt-3")
+            div(class="col-12")
+                h5 List                
+                table(class="table table-bordered" id="project_list")
+                    colgroup
+                        col(width="13%")
+                        col(width="57%")
+                        col(width="30%")
+                    thead
+                        tr
+                            th Seq
+                            th Name
+                            th Date
+                    tbody
+                ul(class="pagination") 
+ 
+
+    div(class="modal modal-wide fade" role="dialog" id="insertModal")
+        div(class="modal-dialog" role="document")
+            div(class="modal-content ")
+                div(class="modal-header")
+                    h4(class="modal-title") 이슈
+                    button(type="button" class="close" data-dismiss="modal") &times; 
+
+                div(class="modal-body")
+                    form(class="form needs-validation" role="form" autocomplete="off" id="updateForm" name="updateForm" novalidate)
+                        link(href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet")
+
+                        <!-- Create the editor container -->
+                        div(id="editor" style="height:200px") 
+                        
+
+                        script(src="https://cdn.quilljs.com/1.3.6/quill.js")                        
+                        script(type="text/javascript").
+                            var quill = new Quill('#editor', { 
+                                placeholder: 'Compose an epic...',
+                                readOnly: false,
+                                theme: 'snow'
+                            });
+                            quill.getBounds(7);  
+
+
+                div(class="modal-footer") 
+                    button(type="button" class="btn btn-default" id="btn_cancel") Cancel
+
+    script(type="text/javascript" src="/static/js/project/project.js")
+    script(type="text/javascript").
+        selectHeaderMenu(1);  
+        loadSideMenu();        
+      
+    

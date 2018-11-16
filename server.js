@@ -12,8 +12,9 @@ let redis = require('redis'),
     redisClient = redis.createClient(redisconfig); 
 
 var indexRouter = require('./routes/index');
-var projectRouter = require('./routes/project/project');
 var envRouter = require('./routes/env/env');
+var projectRouter = require('./routes/project/project');
+var issueRouter = require('./routes/issue/issue');
 
 var app = express();
 
@@ -77,8 +78,9 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', indexRouter); 
-app.use('/project', projectRouter); 
 app.use('/env', envRouter); 
+app.use('/project', projectRouter); 
+app.use('/issue', issueRouter); 
 
 
 
